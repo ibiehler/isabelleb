@@ -98,7 +98,7 @@ def get_current_word(choice, guessed):
 
 
 def play_again_func():
-    answer = input("Would you like to play again? ")
+    answer = input("Would you like to play again? (yes or no) ")
     if answer.lower() == "yes":
         return answer
 
