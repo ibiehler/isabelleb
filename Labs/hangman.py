@@ -86,7 +86,7 @@ gallows = [
 # ask if they want to play again *
 
 
-def get_current_word(choice, guessed):
+def get_current_word(choice, guessed):  # obtains the current word for the user to guess
     word = ""
 
     for letter in choice:
@@ -97,13 +97,13 @@ def get_current_word(choice, guessed):
     return word
 
 
-def play_again_func():
+def play_again_func():  # function to play again
     answer = input("Would you like to play again? (yes or no) ")
     if answer.lower() == "yes":
         return answer
 
 
-while not done:
+while not done:  # game loop
         alphabet = "abcdefghijklmnopqrstuvwxyz"
         incorrect_guesses = 0
         gallow_number = 0
@@ -121,7 +121,7 @@ while not done:
             elif player_guess in guessedletters:
                 print("You have already guessed that letter.\n")
 
-            elif player_guess not in chosen:
+            elif player_guess not in chosen:  # if user chooses incorrect letter
                 print("\nThat is incorrect!")
                 incorrect_guesses += 1
                 guessedletters.append(player_guess)
@@ -129,7 +129,7 @@ while not done:
                 print(word)
                 gallow_number += 1
 
-            else:
+            else:  # if user guesses correctly
                 guessedletters.append(player_guess)
                 if player_guess in chosen:
                     print("You guessed correctly!\n")
@@ -142,17 +142,17 @@ while not done:
                         del mylistofwords[mylistofwords.index(chosen)]
                         break
 
-        if incorrect_guesses == 6:
+        if incorrect_guesses == 6:  # if the user has lost
             print(gallows[6])
             print("You have taken too many guesses to guess your word; you lose! The word was", chosen)
             done = True
 
-        if mylistofwords == []:
+        if mylistofwords == []:  # if the user has guessed all of the words in the list (by playing again)
             print("You have used up all the words!")
             break
 
-        if done:
-            if play_again_func():
+        if done:  # if the user has finished the game
+            if play_again_func():  # if the user wants to play again
                 done = False
                 guessedletters = []
                 chosen = random.choice(mylistofwords)
