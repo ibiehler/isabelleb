@@ -1,6 +1,8 @@
 # Searching
 
 # use forward slashes to go into folders and .. to go "up" a folder
+import re
+
 file = open('../resources/super_villains.txt', 'r')  # open to read
 print(file)
 
@@ -61,12 +63,63 @@ else:
 
 # try to make this into a function
 
-def linear_search(key, list):
+def linear_search(key, my_list):
     """
     :param key: what you are looking for
     :param list: where you are looking
     :return: bool did you find it?
     """
+    i = 0
+    while i < (len(my_list) - 1) and key.upper() != my_list[i]:
+        i += 1
+
+    if i < len(villains) - 1:
+        print("Found", key, "at position", i)
+        return True
+    else:
+        print(key, "not found.")
+        return False
+
+
+
+# Binary Search
+villains.sort()
+
+key = "THEODORA THE WICKED"
+lower_bound = 0
+upper_bound = len(villains)
+found = False
+middle_pos = 0
+
+while lower_bound <= upper_bound and not found:
+    middle_pos = (upper_bound + lower_bound) // 2
+    if villains[middle_pos] < key:
+        lower_bound = middle_pos + 1
+    elif villains[middle_pos] > key:
+        upper_bound = middle_pos - 1
+    else:
+        found = True
+
+if found:
+    print(key, "was found at position", middle_pos)
+else:
+    print(key, "not found.")
+
+
+# Reading in Alice in Wonderland
+def split_line(line):
+    # returns a list of all the words in line
+    return re.findall('[A-Za-z]+(?:\'[A-Za-z]+)?', line)
+
+print(split_line("Hello, I don't know you!"))
+
+
+
+file = open("../resources/alice_in_wonderland")
+
+for line in file:
+    line = line.strip().upper()
+    #print(line.split())
 
 
 
