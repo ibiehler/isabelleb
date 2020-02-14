@@ -15,7 +15,7 @@ def split_line(line):
 # 1.  (6pts) Write code which finds and prints the longest
 # word in the provided dictionary.  If there are more
 # than one longest word, print them all.
-'''
+
 file = open('../Searching/dictionary.txt')
 list_of_words = []
 word_len = 0
@@ -36,7 +36,7 @@ for word in list_of_words:
         length_list.append(word)
 
 print(length_list[-1])
-'''
+
 # 2.  (8pts)  Write code which finds the total word count AND average word length
 # in "AliceInWonderLand.txt"
 file = open('../Searching/AliceInWonderLand.txt')
@@ -105,6 +105,6 @@ for num in range(len(list_of_words)):
     if current_word == "CHESHIRE" and list_of_words[num + 1] == "CAT":
         cheshire_cat_count += 1
 
-print("The word 'Cheshire' immediately followed by 'Cat' (Cheshire Cat) occurs", cheshire_cat_count, "times.")
+print("The word 'Cheshire' immediately followed by the word 'Cat' (Cheshire Cat) occurs", cheshire_cat_count, "times.")
 
 
