@@ -72,7 +72,7 @@ def binary_search(key, my_list, line_number):
     if found:
         return True
     else:
-        print(key, "was not found. Found in Alice in Wonderland at line", line_number)
+        print(key, "was not found. Found in Alice in Wonderland at line", line_number2)
 
 
 for line in file:
@@ -84,4 +84,7 @@ for line in file:
 
 
 # Challenge:  Find all words that occur in Alice through the looking glass that do NOT occur in Wonderland.
+
+
+
 
