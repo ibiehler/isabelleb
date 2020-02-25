@@ -72,7 +72,7 @@ def binary_search(key, my_list, line_number2):
     if found:
         return True
     else:
-        print(key, "was not found. Found in Alice in Wonderland at line", line_number2)
+        print(key, "was not found in the dictionary. Found in Alice in Wonderland at line", line_number2)
 
 
 for line in file:
@@ -83,7 +83,50 @@ for line in file:
         binary_search(word, dictionary_list, line_number2)
 
 
+# I COMMENTED THE CHALLENGE PROBLEM OUT BECAUSE IT DOES NOT WORK
 # Challenge:  Find all words that occur in Alice through the looking glass that do NOT occur in Wonderland.
+# file2 = open('../Alice Spellcheck/AliceInWonderLand200.txt')
+# other_file = open('../Alice Spellcheck/AliceThroughTheLookingGlass.txt')
+# list_of_words_glass = []
+# list_of_words_alice = []
+#
+#
+# def binary_search2(key, my_list):
+#     found = False
+#     lower_bound = 0
+#     upper_bound = len(my_list) - 1
+#     while lower_bound <= upper_bound and not found:
+#         middle_pos = (upper_bound + lower_bound) // 2
+#         if my_list[middle_pos] < key:
+#             lower_bound = middle_pos + 1
+#         elif my_list[middle_pos] > key:
+#             upper_bound = middle_pos - 1
+#         else:
+#             found = True
+#     if found:
+#         return True
+#     else:
+#         print(key, "was not found in Alice In Wonderland.")
+#         return False
+#
+#
+# print("\n--- Challenge Problem ---")
+# for line in file2:
+#     line = line.strip().upper()
+#     words = split_line(line)
+#     for word in words:
+#         list_of_words_alice.append(word)
+#
+# list_of_words_alice = list(set(list_of_words_alice))
+# list_of_words_alice.sort()
+# print(list_of_words_alice)
+#
+# with open("AliceThroughTheLookingGlass.txt") as file:
+#     for line in other_file:
+#         line = line.strip().upper()
+#         words = split_line(line)
+#         for word in words:
+#             binary_search2(word, list_of_words_alice)
 
 
 
