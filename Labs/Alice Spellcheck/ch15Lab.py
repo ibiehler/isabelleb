@@ -57,7 +57,7 @@ file = open('../Alice Spellcheck/AliceInWonderLand200.txt')
 line_number2 = 0
 
 
-def binary_search(key, my_list, line_number):
+def binary_search(key, my_list, line_number2):
     found = False
     lower_bound = 0
     upper_bound = len(my_list) - 1
