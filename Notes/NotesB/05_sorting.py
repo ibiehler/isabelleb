@@ -23,10 +23,10 @@ print(my_list)
 
 # SELECTION SORT
 for cur_pos in range(len(my_list)):
-    min_pos = cur_pos # current dancer is assumed lowest
+    min_pos = cur_pos  # current dancer is assumed lowest
     for scan_pos in range(cur_pos + 1, len(my_list)):
         if my_list[scan_pos] < my_list[min_pos]:
-            min_pos = scan_pos # if we find a lower dancer, we update the min
+            min_pos = scan_pos  # if we find a lower dancer, we update the min
     my_list[cur_pos], my_list[min_pos] = my_list[min_pos], my_list[cur_pos]
 
 print(my_list)
