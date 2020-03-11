@@ -13,7 +13,7 @@ my_turtle.speed(0)
 my_screen = turtle.Screen()
 my_screen.bgcolor('white')
 
-# draw a shape using goto method (red square)
+# draw a shape using goto method (purple square)
 my_turtle.fillcolor('lavender')
 my_turtle.begin_fill()  # starts a shape which will be filled
 my_turtle.goto(200, 0)  # bottom right
