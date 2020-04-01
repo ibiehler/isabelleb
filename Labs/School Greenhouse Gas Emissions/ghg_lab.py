@@ -35,7 +35,7 @@ Maybe you can try one of the following or think up your own:
 - Add colleges and universities (use a different marker type)
 
 
-Note 2:  This is a tough assignment to do on your own.  Do your best with what you have.  We will do
+Note 2:  This is a tough assignment to do on your own.  Do your best with what you have.
 '''
 
 
