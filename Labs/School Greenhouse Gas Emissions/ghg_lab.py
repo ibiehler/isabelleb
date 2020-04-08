@@ -112,8 +112,27 @@ y = [p[0] * y + p[1] for y in x]  # linear first order
 plt.plot(x, y)
 
 
+# extra credit: Make schools in bottom 10 percent GHG Intensity show in red.
+ghg_intensity = []
+lowest_intensity = []
+color = []
+
+for intensity in valid_data:
+    ghg_intensity.append(float(intensity[-4]))
+
+ghg_intensity.sort()
+lowest_intensity.append(ghg_intensity[:3])
+print(lowest_intensity[0])
+
+for intensity in valid_data:
+    if lowest_intensity[0][2] >= float(intensity[-4]):
+        color.append("red")
+    else:
+        color.append("green")
+
+
 plt.figure(1, tight_layout=True)
-plt.scatter(sqft, ghg, alpha=0.3)
+plt.scatter(sqft, ghg, alpha=0.3, c=color)
 
 plt.show()
 
