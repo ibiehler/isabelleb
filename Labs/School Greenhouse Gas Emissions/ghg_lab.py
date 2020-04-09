@@ -91,7 +91,7 @@ plt.xlabel("Building Square Footage")
 plt.title("Energy Efficiency of Chicago Schools in 2018")
 
 
-# label; Parker was not within the 2018 data so I annotated for Latin instead
+# annotation; Parker was not within the 2018 data so I annotated for Latin instead
 schools = []
 
 for school in valid_data:
