@@ -18,3 +18,4 @@ print(soup.prettify())  # make it print formatted
 title = soup.find("title")  # look for the <title> and returns the first one
 
 print(title)
+
