@@ -35,8 +35,9 @@ page = requests.get(url)
 soup = BeautifulSoup(page.text, "html.parser")
 # print(soup.prettify())
 
-table = soup.find_all("table", {"class": "twc-table"})
+table = soup.find_all(class_="twc-table")
 print(table)
+
 
 
 
