@@ -1,18 +1,10 @@
 # SCRAPING PROBLEMS
-# Twitter Scraping (15pts): OPTIONAL
-# Go to your favorite follow on Twitter.  (not someone who posts explicit materials please)
-# Inspect the twitter feed in Chrome.
-# You'll notice that the tweets are stored in a ordered list <ol></ol>, and individual tweets are contained as list items <li></li>.
-# Use BeautifulSoup and requests to grab the text contents of last 5 tweetslocated on the twitter page you chose.
-# Print the tweets in a nicely formatted way.
-# Have fun.  Again, nothing explicit.
-
-# print("{} {}!".format("Hello", "World"))
-
+from bs4 import BeautifulSoup
+import requests
 
 # Weather Scraping (15pts)
 # Below is a link to a 10-day weather forecast at weather.com
-# Pick the weather for a city that has the first letter as your name. *
+# Pick the weather for a city that has the first letter as your name. 
 # Use requests and BeautifulSoup to scrape data from the weather table.
 # Print a synopsis of the weather for the next 10 days.
 # Include the day and date, description, high and low temp, chance of rain, and wind. (2pts each)
@@ -21,22 +13,33 @@
 # You will need to target specific classes or other attributes to pull some parts of the data.
 
 # Sample sentence:
-# Wednesday, April 4 will be Partly Cloudy/Windy with a High of 37 degrees and a low of 25, humidity at 52%.  There is 0% chance of rain with winds out of the WNW at 22 mph.
-# if the sentence is a little different than shown, that will work; do what you can.  Don't forget about our friend string.format()
-
-from bs4 import BeautifulSoup
-import requests
+# Wednesday, April 4 will be Partly Cloudy/Windy with a High of 37 degrees and a low of 25, humidity at 52%.
+# There is 0% chance of rain with winds out of the WNW at 22 mph.
+# if the sentence is a little different than shown, that will work; do what you can.
+# Don't forget about our friend string.format()
 
 # Indianapolis 10-day weather
 url = "https://weather.com/weather/tenday/l/60726d811b7e36432583ede41c4600b07b8b2e94c237fa8c6c2a9085a511d43a/"
-
 page = requests.get(url)
-# print(page)
 soup = BeautifulSoup(page.text, "html.parser")
-# print(soup.prettify())
 
-table = soup.find_all(class_="twc-table")
-print(table)
+# the variables
+day = soup.find_all(class_='date-time')
+date = soup.find_all(class_='day-detail clearfix')
+description = soup.find_all(class_='description')
+temp = soup.find_all(class_='temp')
+humidity = soup.find_all(class_='humidity')
+precipitation = soup.find_all(class_='precip')
+wind = soup.find_all(class_='wind')
+
+
+# sentence maker
+for i in range(1, 11):
+    print(day[i - 1].text + ",", date[i - 1].text, "will be", description[i].text, "with a High of",
+          temp[i].text[:3] + " degrees and a low of " + temp[i].text[-3:] + ",", "humidity at",
+          humidity[i].text + ".", "There is a", precipitation[i].text, "chance of rain with winds out of the",
+          wind[i].text + ".")
+    print("\n")
 
 
 
