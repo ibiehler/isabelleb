@@ -1,5 +1,5 @@
 # SCRAPING PROBLEMS
-# Twitter Scraping (15pts)
+# Twitter Scraping (15pts): OPTIONAL
 # Go to your favorite follow on Twitter.  (not someone who posts explicit materials please)
 # Inspect the twitter feed in Chrome.
 # You'll notice that the tweets are stored in a ordered list <ol></ol>, and individual tweets are contained as list items <li></li>.
@@ -7,15 +7,12 @@
 # Print the tweets in a nicely formatted way.
 # Have fun.  Again, nothing explicit.
 
-#  print("{} {}!".format("Hello", "World"))
-
-
 # print("{} {}!".format("Hello", "World"))
 
 
 # Weather Scraping (15pts)
 # Below is a link to a 10-day weather forecast at weather.com
-# Pick the weather for a city that has the first letter as your name.
+# Pick the weather for a city that has the first letter as your name. *
 # Use requests and BeautifulSoup to scrape data from the weather table.
 # Print a synopsis of the weather for the next 10 days.
 # Include the day and date, description, high and low temp, chance of rain, and wind. (2pts each)
@@ -26,6 +23,20 @@
 # Sample sentence:
 # Wednesday, April 4 will be Partly Cloudy/Windy with a High of 37 degrees and a low of 25, humidity at 52%.  There is 0% chance of rain with winds out of the WNW at 22 mph.
 # if the sentence is a little different than shown, that will work; do what you can.  Don't forget about our friend string.format()
+
+from bs4 import BeautifulSoup
+import requests
+
+# Indianapolis 10-day weather
+url = "https://weather.com/weather/tenday/l/60726d811b7e36432583ede41c4600b07b8b2e94c237fa8c6c2a9085a511d43a/"
+
+page = requests.get(url)
+# print(page)
+soup = BeautifulSoup(page.text, "html.parser")
+# print(soup.prettify())
+
+table = soup.find_all("table", {"class": "twc-table"})
+print(table)
 
 
 
