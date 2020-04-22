@@ -4,7 +4,7 @@ import requests
 
 # Weather Scraping (15pts)
 # Below is a link to a 10-day weather forecast at weather.com
-# Pick the weather for a city that has the first letter as your name. 
+# Pick the weather for a city that has the first letter as your name.
 # Use requests and BeautifulSoup to scrape data from the weather table.
 # Print a synopsis of the weather for the next 10 days.
 # Include the day and date, description, high and low temp, chance of rain, and wind. (2pts each)
