@@ -32,4 +32,6 @@ print(type(df3))
 
 # handy methods
 print(df3.head())  # first 5 rows in df
+print(df3.tail)
+print(df3.info)  
 
