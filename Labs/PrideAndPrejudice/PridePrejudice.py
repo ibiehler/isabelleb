@@ -15,12 +15,12 @@ the dictionary count now that you've seen that word again.
 '''
 
 # PSEUDO CODE
-# Get text from http://www.gutenberg.org/files/1342/1342-0.txt - Use requests library.
-# Split the transcript into words - Use split and strip methods and store results in a list.
-# Create a dictionary object to store the word counts
-# Iterate through the list/text of Pride and Prejudice
-# Update word counts on your dict (10pts)  {'word1': 5, 'word2': 2...}
-# Sort words by counts in descending order (5pts)  stackoverflow probably?
+# Get text from http://www.gutenberg.org/files/1342/1342-0.txt - Use requests library. *
+# Split the transcript into words - Use split and strip methods and store results in a list. *
+# Create a dictionary object to store the word counts *
+# Iterate through the list/text of Pride and Prejudice *
+# Update word counts on your dict (10pts)  {'word1': 5, 'word2': 2...} *
+# Sort words by counts in descending order (5pts) *
 # Create Bar Graph (5pts)
 # Include descriptive titles and labels (5pts)
 
@@ -46,7 +46,7 @@ for item in wordlist:
 
 # used this link as a resource:
 # https://www.w3resource.com/python-exercises/dictionary/python-data-type-dictionary-exercise-1.php
-sorted_frequencies = dict(sorted(frequencies.items(), key=operator.itemgetter(1),reverse=True))
+sorted_frequencies = dict(sorted(frequencies.items(), key=operator.itemgetter(1), reverse=True))
 
 print(sorted_frequencies)
 
@@ -54,8 +54,11 @@ print(sorted_frequencies)
 keys = list(sorted_frequencies.keys())
 values = list(sorted_frequencies.values())
 
-plt.bar(range(len(sorted_frequencies)), values, tick_label=keys)
+plt.bar(range(len(keys)), values, tick_label=keys)
+
+
 plt.title("Pride and Prejudice Word Counts")
+plt.xlabel("Words")
 plt.ylabel("Word Count")
 
 

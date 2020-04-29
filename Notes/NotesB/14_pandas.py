@@ -34,4 +34,24 @@ print(type(df3))
 print(df3.head())  # first 5 rows in df
 print(df3.tail)
 print(df3.info)
+print(df3.describe())  # basic stats
+
+# useful attributes
+print(df3.index)  # these are the rows (data key)
+print(df3.columns)  # index object
+print(list(df3.columns))
+print(df3.dtypes)  # data types
+
+# simple selection using []
+wind_speeds = df3['Wind Speed']  # index kinda like dictionary
+print(type(wind_speeds))
+
+
+# we can also slice the df using .iloc[]
+first_5_station_names = df3.iloc[:5, 0]  # rows, cols
+print(first_5_station_names)
+
+first_fifth_temps = df3.iloc[[0, 4], [2, 3]]
+print(first_fifth_temps)
+print(type(first_fifth_temps))
 

@@ -46,7 +46,6 @@ plt.legend()
 plt.figure(2, tight_layout=True, figsize=(10, 7))
 
 # plot every library in Chicago YTD visitors on a bar graph
-
 # get library totals
 ytd_totals = [int(x[-1]) for x in data]
 print(ytd_totals)
