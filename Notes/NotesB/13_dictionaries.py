@@ -78,6 +78,7 @@ print(the_office)
 
 # Using a dictionary to track (database like)
 flips = [random.choice(['heads, tails']) for x in range(100)]
+print(flips)
 
 head_tails = {}
 
