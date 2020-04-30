@@ -53,13 +53,14 @@ print(sorted_frequencies)
 
 keys = list(sorted_frequencies.keys())
 values = list(sorted_frequencies.values())
+top_25_keys = keys[:25]
+top_25_values = values[:25]
 
-plt.bar(range(len(keys)), values, tick_label=keys)
-
-
-plt.title("Pride and Prejudice Word Counts")
-plt.xlabel("Words")
-plt.ylabel("Word Count")
+plt.figure(1, tight_layout=True)
+plt.barh(top_25_keys, top_25_values)
+plt.title("Pride and Prejudice Top 25 Word Counts")
+plt.xlabel("Word Counts")
+plt.yticks(top_25_keys, top_25_keys, fontsize=4)
 
 
 plt.show()
