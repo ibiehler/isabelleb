@@ -21,8 +21,8 @@ the dictionary count now that you've seen that word again.
 # Iterate through the list/text of Pride and Prejudice *
 # Update word counts on your dict (10pts)  {'word1': 5, 'word2': 2...} *
 # Sort words by counts in descending order (5pts) *
-# Create Bar Graph (5pts)
-# Include descriptive titles and labels (5pts)
+# Create Bar Graph (5pts) *
+# Include descriptive titles and labels (5pts) *
 
 import requests
 import matplotlib.pyplot as plt
@@ -33,7 +33,6 @@ pride = requests.get(url).text
 
 wordlist = pride.split()
 wordlist = [x.upper().strip(' "?.,:;!\\[](){}<>*-#1234567890\\\n\t') for x in wordlist]
-
 
 frequencies = {}
 
@@ -50,7 +49,6 @@ sorted_frequencies = dict(sorted(frequencies.items(), key=operator.itemgetter(1)
 
 print(sorted_frequencies)
 
-
 keys = list(sorted_frequencies.keys())
 values = list(sorted_frequencies.values())
 top_25_keys = keys[:25]
@@ -58,7 +56,7 @@ top_25_values = values[:25]
 
 plt.figure(1, tight_layout=True)
 plt.barh(top_25_keys, top_25_values)
-plt.title("Pride and Prejudice Top 25 Word Counts")
+plt.title("Pride and Prejudice Top 25 Most Common Word Counts")
 plt.xlabel("Word Counts")
 plt.yticks(top_25_keys, top_25_keys, fontsize=4)
 
