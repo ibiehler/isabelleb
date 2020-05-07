@@ -57,13 +57,55 @@ print(type(first_fifth_temps))
 
 
 # World Cup data
+
 import pandas as pd
 x = 5
-x  # in ipython/console this authomatically prints
+x  # in ipython/console, this automatically prints
 
-df = pd.read_csv('/Users/lin/PycharmProjects/P2_SP20/Notes/NotesB/world_cup_matches.csv')
-# use full path when working in console
+df = pd.read_csv('/Users/alee/PycharmProjects/P2_SP20/Notes/NotesB/world_cup_matches.csv')  # use full path when working in console
 
 
-# iloc
+# iloc (only useful for index number)
+df.iloc[3:6]  # look at 3, 4, 5 matches
+df.iloc[3:6, [4, 7]]   # cols 4 and 7 for index/rows 3to5
+
+# loc
+df.loc[3:6, ['Home Team Name', 'Away Team Name']] # use col names to slice
+
+# all games from 1950
+df_1950 = df.loc[df['Year'] == 1950]
+
+# all games from 1950 Group 3
+df_1950.loc[df['Stage'] == 'Group 3']
+
+# alternately we could do both filters at once
+df.loc[(df['Year'] == 1950) & (df['Stage'] == 'Group 3')]  # loc[(cond1) & (cond2)]
+
+
+# Number of home games played by Netherlands
+df.loc[df['Home Team Name'] == 'Netherlands'].count()
+
+# All games by Netherlands
+df.loc[(df['Home Team Name'] == "Netherlands") | (df['Away Team Name'] == "Netherlands")]
+
+# print the attendance for all games in 2010
+df.loc[df['Year'] == 2010]
+df.loc[df['Year'] == 2010]['Attendance'].sum()
+df.loc[df['Year'] == 2010]['Attendance'].mean()
+df.loc[df['Year'] == 2010]['Attendance'].value_count()
+df.loc[df['Year'] == 2010]['Attendance'].count()
+
+# How many games the US played in 2014
+df.loc[(df['Home Team Initials'] == "USA") | (df['Away Team Initials'] == "USA")][df['Year'] == 2014]
+
+# how many countries participated in 1986
+# hint: pd.Series objects have a method called .unique()
+
+
+# how many matches had 7 or more goals
+df.loc[(df['Home Team Goals'] + df['Away Team Goals']) > 7]
+df['Total Goals'] = df['Home Team Goals'] + df['Away Team Goals']
+len(df.loc[df['Total Goals'] > 7])
+
+# search idle (python's idle) and operate out of that for the hw (it won't autocomplete but it's good enough)
 
